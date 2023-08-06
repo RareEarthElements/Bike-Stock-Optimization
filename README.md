@@ -6,13 +6,26 @@ Bike sharing systems are a recent evolution of traditional bike rental systems, 
 
 One of the biggest challenges for the company to optimize the bike sharing system is to have enough bikes for the customers. If the number of bicycles is insufficient, it will have an impact on profit loss for the company and affect the level of customer satisfaction and fall the company's branding image. Meanwhile, if the number of bicycles provided exceeds so much, it will affect the company's loss due to high operational costs. Establishing the right number of bicycles to remain profitable with affordable operational costs is very important.
 
-Based on these problems, a company with a bike sharing system business would need to have a method that is able to predict the right number of bikes to be provided for rent. The presence of information from various features such as when customers rent, rental track record in the last two years, season, temperature, etc., can increase the accuracy of predicting the number of bikes to be provided by the company, which can bring profit to the company and reduce the risk of loss, and of course maintain customer satisfaction.
+Based on these problems, a company with a bike sharing system business would need to have a method that is able to predict the right number of bikes to be provided for rent. The presence of information from various features such as when customers rent, rental track record in the last two years, season, temperature, etc., can increase the accuracy of predicting the number of bikes to be provided by the company, which can bring profit to the company and reduce the risk of loss, and of course maintain customer satisfaction. Performing data analytics is necessary to find patterns and insights from the available features coupled with a regression model as it is beneficial to predict the number of bicycles that the company needs to provide, which will be useful for both the company and the customer.
 
 # Selected Machine Learning Model
 Model   : Random Forest
 
-RMSE    :
+RMSE    : 72.977032
 
-MAE     :
+MAE     : 49.357974
 
-MAPE    :
+MAPE    : 0.7817
+
+# Business Implementation
+Apart from parameterizing the performance of machine learning models, one can extract information from the metrics for business purposes. In terms of business implementation, by taking into account the RMSE metric as it is sensitive to outliers, company shall add more 73 bikes as an anticipation to keep sufficient bicycles available for customers. For instance, the total number of bicycles borrowed by the customer is 27, the prediction result may deviate up to 100 pieces if considering the value of RMSE. Adding 73 bicycles considering the error from the RMSE rather than adding 49 bicycles from the MAE information, is a relevant strategy because it prevents deficiencies in the event of a surge in the number of bicycles borrowed.
+
+Based on the results of the regression machine learning model metrics, we can conclude that if we later use this model to make predictions in increasing the number of bicycles in a certain period, let's say the price of bicycles that the company needs to provide per unit is 275€, so the company needs to allocate additional bicycle procurement funds of 275€ x 73 = 20,075€.
+
+If indeed the company has an initial capital for procuring bicycles of 40,000€ and it turns out that the procurement needed is 20,075€, it means that the company has managed to save 19,925€ or managed to save 49% of operational funds for procuring bicycles.
+
+
+# Conclusion and Recommendation
+The analysis of bicycle rentals reveals several key insights about customer behavior and machine learning model performance. Firstly, the data shows that bike rentals are highest during summer and lowest in winter, with the time of day, humidity, and feeling temperature being the most influential factors for customers. The tuned Random Forest model emerges as the best performing model, producing RMSE, MAE, and MAPE scores of 72.98, 49.36, and 0.78, respectively. While the model may still exhibit some overestimation and underestimation, its relatively small MAPE indicates its reliability. For further improvement, hyperparameter tuning using gridsearch can be applied to explore a wider range of parameter values and potentially achieve even smaller RMSE, MAE, and MAPE values.
+
+To enhance the Random Forest Model's confidence, additional features such as location data, city, area, population density, or distance to popular places can be incorporated. For resource allocation, considering both RMSE and MAE, the company may allocate 73 bikes to accommodate the summer demand, while adjusting this allocation during winter. With the cost of each bicycle at 275 €, the company can allocate 20,075 € to procure the desired 73 bicycles. This investment will help the company meet customer demands efficiently and improve overall service quality.
