@@ -10,6 +10,9 @@ Based on these problems, a company with a bike sharing system business would nee
 
 # Selected Machine Learning Model
 Model   : Random Forest
+
 RMSE    :
+
 MAE     :
+
 MAPE    :
